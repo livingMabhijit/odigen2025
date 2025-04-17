@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results - OdiGen 2025</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="/script.js" defer></script>
+</head>
+<body>
+    <div class="results-container">
+        <div id="results-locked" class="results-message">
+            <h1>Results Coming Soon!</h1>
+            <p>The results will be announced after the completion of the hackathon.</p>
+            <p>Stay tuned for updates!</p>
+            <div class="stopwatch">
+                <div class="stopwatch-face">
+                    <div class="hand"></div>
+                    <div class="center-dot"></div>
+                    <div class="marks">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="results-content" class="results-content" style="display: none;">
+            <h1>OdiGen 2025 Results</h1>
+            
+            <section class="winners-section">
+                <h2>Winners</h2>
+                <div class="winners-grid">
+                    <div class="winner-card first">
+                        <div class="trophy">🏆</div>
+                        <h3>First Prize</h3>
+                        <div class="winner-details">
+                            <p class="team-name">Team Name: <span id="first-team">TBD</span></p>
+                            <p class="project">Project: <span id="first-project">TBD</span></p>
+                            <p class="prize">Prize: ₹1,00,000</p>
+                        </div>
+                    </div>
+
+                    <div class="winner-card second">
+                        <div class="trophy">🥈</div>
+                        <h3>Second Prize</h3>
+                        <div class="winner-details">
+                            <p class="team-name">Team Name: <span id="second-team">TBD</span></p>
+                            <p class="project">Project: <span id="second-project">TBD</span></p>
+                            <p class="prize">Prize: ₹75,000</p>
+                        </div>
+                    </div>
+
+                    <div class="winner-card third">
+                        <div class="trophy">🥉</div>
+                        <h3>Third Prize</h3>
+                        <div class="winner-details">
+                            <p class="team-name">Team Name: <span id="third-team">TBD</span></p>
+                            <p class="project">Project: <span id="third-project">TBD</span></p>
+                            <p class="prize">Prize: ₹50,000</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="special-mentions">
+                <h2>Special Mentions</h2>
+                <div class="mentions-grid">
+                    <div class="mention-card">
+                        <h3>🌟 Most Innovative Solution</h3>
+                        <p id="innovative-team">TBD</p>
+                    </div>
+                    <div class="mention-card">
+                        <h3>💻 Best Technical Implementation</h3>
+                        <p id="technical-team">TBD</p>
+                    </div>
+                    <div class="mention-card">
+                        <h3>🎨 Best User Experience</h3>
+                        <p id="ux-team">TBD</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="statistics">
+                <h2>Hackathon Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Participants</h3>
+                        <p id="total-participants">TBD</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Projects Submitted</h3>
+                        <p id="total-projects">TBD</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Lines of Code</h3>
+                        <p id="total-loc">TBD</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Function to check if results should be visible
+        async function checkResultsVisibility() {
+            try {
+                const response = await fetch('/api/results-status');
+                const data = await response.json();
+                
+                const resultsLocked = document.getElementById('results-locked');
+                const resultsContent = document.getElementById('results-content');
+                
+                if (data.visible) {
+                    resultsLocked.style.display = 'none';
+                    resultsContent.style.display = 'block';
+                    
+                    // Load results data if visible
+                    loadResults();
+                } else {
+                    resultsLocked.style.display = 'block';
+                    resultsContent.style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Error checking results visibility:', error);
+            }
+        }
+
+        // Function to load results data
+        async function loadResults() {
+            try {
+                const response = await fetch('/api/results');
+                const data = await response.json();
+                
+                // Update winners
+                document.getElementById('first-team').textContent = data.winners.first.team;
+                document.getElementById('first-project').textContent = data.winners.first.project;
+                document.getElementById('second-team').textContent = data.winners.second.team;
+                document.getElementById('second-project').textContent = data.winners.second.project;
+                document.getElementById('third-team').textContent = data.winners.third.team;
+                document.getElementById('third-project').textContent = data.winners.third.project;
+
+                // Update special mentions
+                document.getElementById('innovative-team').textContent = data.specialMentions.innovative;
+                document.getElementById('technical-team').textContent = data.specialMentions.technical;
+                document.getElementById('ux-team').textContent = data.specialMentions.ux;
+
+                // Update statistics
+                document.getElementById('total-participants').textContent = data.stats.participants;
+                document.getElementById('total-projects').textContent = data.stats.projects;
+                document.getElementById('total-loc').textContent = data.stats.linesOfCode;
+            } catch (error) {
+                console.error('Error loading results:', error);
+            }
+        }
+
+        // Check visibility when page loads
+        document.addEventListener('DOMContentLoaded', checkResultsVisibility);
+    </script>
+</body>
+</html>

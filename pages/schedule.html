@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule - OdiGen 2025</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .timeline-section {
+            padding: 40px 0;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 100%;
+            background: var(--primary-color);
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            margin-bottom: 60px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-content {
+            width: 45%;
+            padding: 20px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 55%;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 55%;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -60px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -60px;
+        }
+
+        .timeline-date {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .timeline-title {
+            color: var(--text-color);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .timeline-description {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+            left: -10px;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 80px !important;
+            }
+
+            .timeline-content::before {
+                left: -50px !important;
+            }
+
+            .timeline-content::after {
+                border-width: 10px 10px 10px 0 !important;
+                border-color: transparent white transparent transparent !important;
+                left: -10px !important;
+            }
+        }
+    </style>
+    <script src="/script.js" defer></script>
+</head>
+<body>
+    <div class="schedule-container">
+        <h1>Event Schedule</h1>
+        
+        <section class="timeline-section">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">May 1-15, 2025</div>
+                        <div class="timeline-title">Phase 1: Registration & Team Formation</div>
+                        <div class="timeline-description">
+                            Submit your application and form your team. Each team should have 3-4 members with diverse skills in AI, development, and problem-solving.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">May 20-25, 2025</div>
+                        <div class="timeline-title">Phase 2: Online Qualification Round</div>
+                        <div class="timeline-description">
+                            Teams will participate in online challenges to demonstrate their technical capabilities and innovative thinking in AI/ML problem-solving.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">June 1-10, 2025</div>
+                        <div class="timeline-title">Phase 3: Project Proposal Submission</div>
+                        <div class="timeline-description">
+                            Qualified teams submit detailed project proposals outlining their innovative solutions using generative AI technologies.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">June 15, 2025</div>
+                        <div class="timeline-title">Phase 4: Proposal Evaluation & Selection</div>
+                        <div class="timeline-description">
+                            Expert panel reviews proposals and selects teams for the final hackathon round based on innovation, feasibility, and impact.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">July 5-7, 2025</div>
+                        <div class="timeline-title">Phase 5: Final Hackathon Event</div>
+                        <div class="timeline-description">
+                            48-hour intensive development sprint at IIT Bhubaneswar. Teams build their solutions with mentorship support and present to judges.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">July 7, 2025</div>
+                        <div class="timeline-title">Phase 6: Presentations & Awards</div>
+                        <div class="timeline-description">
+                            Final project presentations, demonstrations, and award ceremony celebrating the most innovative solutions.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="schedule-content">
+            <div class="download-section">
+                <a href="/schedules/Phase schedule T$O 2025.pdf" class="download-btn">
+                    <i class="fas fa-download"></i> Download Detailed Schedule
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

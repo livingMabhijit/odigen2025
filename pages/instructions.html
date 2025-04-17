@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructions & FAQs - T$O 2025</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .instructions-container h1 {
+            margin-bottom: 30px;
+        }
+
+        .instruction-section {
+            margin-bottom: 10px;
+        }
+        
+        .instruction-section h2 {
+            margin-bottom: 10px;
+        }
+        
+        .instruction-section ul {
+            margin-bottom: 0;
+            margin-top: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .instruction-section ul li {
+            margin-bottom: 5px;
+        }
+
+        .instruction-section ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-section {
+            margin-top: 20px;
+        }
+
+        .faq-section h2 {
+            margin-bottom: 15px;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 500;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #f8fafc;
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 300px;
+        }
+    </style>
+    <script src="/script.js" defer></script>
+</head>
+<body>
+    <div class="instructions-container">
+        <h1>Instructions & FAQs</h1>
+        
+        <section class="instruction-section">
+            <h2>General Guidelines</h2>
+            <ul>
+                <li>All team members must be registered participants of T$O 2025.</li>
+                <li>Teams must consist of 3-4 members.</li>
+                <li>All code must be written during the hackathon period.</li>
+                <li>Use of third-party libraries and APIs is allowed, but must be properly documented.</li>
+                <li>All projects must be original work. Plagiarism will result in immediate disqualification.</li>
+            </ul>
+        </section>
+
+        <section class="instruction-section">
+            <h2>Code of Conduct</h2>
+            <ul>
+                <li>Treat all participants, mentors, and organizers with respect and courtesy.</li>
+                <li>Harassment or discriminatory behavior of any kind will not be tolerated.</li>
+                <li>Maintain a collaborative and supportive environment.</li>
+                <li>Follow proper attribution practices when using external resources.</li>
+                <li>Respect the venue and equipment provided.</li>
+            </ul>
+        </section>
+
+        <section class="instruction-section">
+            <h2>Technical Requirements</h2>
+            <ul>
+                <li>All code must be submitted to the designated repository by the deadline.</li>
+                <li>Include clear documentation and setup instructions in your repository.</li>
+                <li>Maintain a clean and well-organized codebase.</li>
+                <li>Follow industry-standard coding practices and conventions.</li>
+                <li>Ensure your solution addresses the problem statement effectively.</li>
+            </ul>
+        </section>
+
+        <section class="instruction-section">
+            <h2>Presentation Guidelines</h2>
+            <ul>
+                <li>Each team will have 10 minutes for presentation and 5 minutes for Q&A.</li>
+                <li>All team members should participate in the presentation.</li>
+                <li>Include a live demo of your working solution.</li>
+                <li>Explain your technical approach and design decisions.</li>
+                <li>Be prepared to answer questions about your implementation.</li>
+            </ul>
+        </section>
+
+        <section class="instruction-section">
+            <h2>Important Notes</h2>
+            <ul>
+                <li>Teams must be present for the entire duration of the hackathon.</li>
+                <li>Regular commits to your repository are expected to track progress.</li>
+                <li>Mentors will be available throughout the event for guidance.</li>
+                <li>Take regular breaks and maintain a healthy work environment.</li>
+                <li>Network and collaborate with other participants while respecting competition rules.</li>
+            </ul>
+        </section>
+
+        <section class="instruction-section">
+            <h2>Intellectual Property</h2>
+            <ul>
+                <li>All code created during the hackathon remains your intellectual property.</li>
+                <li>Projects must be open-source and use appropriate licensing.</li>
+                <li>Properly credit any external resources or libraries used.</li>
+                <li>OdiGen 2025 reserves the right to showcase projects for promotional purposes.</li>
+            </ul>
+        </section>
+
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is the eligibility to participate?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        If you are a student, recent graduate or about to graduate, you are half way there. If you are a great programmer, has good grasp in generative AI, Machine learning, natural language processing and software engineering, you are an ideal candidate who has all the skillsets to win this competition.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Will it be an online event?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        It's a hybrid event, 2 round will be online and final round to be done in person where participants will develop their product in person at the venue.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Will there be any accommodation?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, only participants can stay in venue hostel during the event or they can stay at nearby hotels with their own expenses.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Will we be able to use ChatGPT or similar LLMs for help?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, API key for generative AI will be given for any online assistance from large language models.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Will there be any instructors or competition assistance?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, mentors will be assigned for offline and online drop in assistance with code or any development issues.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I apply for volunteer?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, we are actively looking for volunteers to assist us with our event logistics. Please get in touch with the organizers.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
