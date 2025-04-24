@@ -1220,6 +1220,90 @@ button:hover {
     margin-bottom: 0;
 }
 
+/* Judges Section */
+.judges {
+    background: #f8fafc;
+    padding: 60px 0;
+}
+
+.judges-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.judge-card {
+    background: white;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.judge-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.judge-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px solid var(--primary-color);
+}
+
+.judge-card h3 {
+    color: var(--text-color);
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.judge-role {
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.judge-linkedin {
+    color: #0077b5;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.judge-linkedin:hover {
+    transform: scale(1.2);
+}
+
+@media (max-width: 992px) {
+    .judges-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .judges-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .judges-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
 /* Partners Section */
 .partners {
     background: white;
