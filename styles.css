@@ -177,7 +177,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #854709, #e69d30);
+    background: url('images/Gemini_Generated_Image.jpeg') center/cover no-repeat;
     position: relative;
     color: white;
     padding: 50px 20px;
@@ -196,50 +196,8 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
-        radial-gradient(2px 2px at 40px 60px, #fff 50%, #0000),
-        radial-gradient(2px 2px at 100px 120px, #fff 50%, #0000),
-        radial-gradient(2px 2px at 200px 150px, #fff 50%, #0000),
-        radial-gradient(2px 2px at 80px 250px, #fff 50%, #0000),
-        radial-gradient(2px 2px at 180px 300px, #fff 50%, #0000),
-        radial-gradient(2px 2px at 250px 180px, #fff 50%, #0000),
-        radial-gradient(2px 2px at 300px 220px, #fff 50%, #0000),
-        radial-gradient(2px 2px at 150px 400px, #fff 50%, #0000);
-    background-size: 400px 400px;
-    animation: moveStars 60s linear infinite;
-    opacity: 0.3;
+    background: rgba(0, 0, 0, 0.4);
     z-index: 1;
-}
-
-.hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: 
-        radial-gradient(2px 2px at 20px 30px, #e69d30 50%, #0000),
-        radial-gradient(2px 2px at 40px 70px, #e69d30 50%, #0000),
-        radial-gradient(2px 2px at 100px 90px, #e69d30 50%, #0000),
-        radial-gradient(2px 2px at 160px 150px, #e69d30 50%, #0000),
-        radial-gradient(2px 2px at 220px 180px, #e69d30 50%, #0000),
-        radial-gradient(2px 2px at 280px 120px, #e69d30 50%, #0000);
-    background-size: 300px 300px;
-    animation: moveStars 40s linear infinite;
-    opacity: 0.3;
-    z-index: 1;
-}
-
-@keyframes moveStars {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(-400px);
-    }
-}
-
-.hero::before,
-.hero::after {
-    mask-image: radial-gradient(circle at center, transparent 30%, black);
 }
 
 .hero .container {
@@ -815,8 +773,23 @@ body {
 
 /* Footer Contact Info */
 footer .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
     color: inherit;
     font-weight: 500;
+}
+
+footer .contact-info p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+footer .contact-info i {
+    font-size: 1.2rem;
 }
 
 /* Sections */
