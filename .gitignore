@@ -1,4 +1,86 @@
+# Dependencies
 node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Environment variables
 .env
+.env.local
+.env.*.local
+
+# IDE/Editor specific
+.idea/
+.vscode/
+*.swp
+*.swo
 .DS_Store
+Thumbs.db
+
+# Logs
+logs/
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Build output
+dist/
+build/
+out/
+
+# Temporary files
+tmp/
+temp/
+
+# SSL certificates
+*.pem
+*.key
+*.crt
+*.csr
+*.srl
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Optional: Local development files
+*.local
+*.dev
+*.development
+
+# Optional: Production files
+*.prod
+*.production
+
+# Optional: Test coverage
+coverage/
+.nyc_output/
+
+# Optional: Documentation
+docs/_site/
+docs/.jekyll-cache/
+docs/.jekyll-metadata
+
+# Optional: Deployment files
+.vercel
+.netlify
+.firebase

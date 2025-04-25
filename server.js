@@ -2,13 +2,42 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
+const helmet = require('helmet');
+const compression = require('compression');
+require('dotenv').config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
-// Middleware
+// Security middleware
+app.use(helmet({
+    contentSecurityPolicy: {
+        directives: {
+            defaultSrc: ["'self'"],
+            styleSrc: ["'self'", "'unsafe-inline'", "https:", "http:"],
+            scriptSrc: ["'self'", "'unsafe-inline'", "https:", "http:"],
+            imgSrc: ["'self'", "data:", "https:", "http:"],
+            connectSrc: ["'self'"],
+            fontSrc: ["'self'", "https:", "http:", "data:"],
+            objectSrc: ["'none'"],
+            mediaSrc: ["'self'"],
+            frameSrc: ["'self'", "https://www.google.com"]
+        }
+    }
+}));
+
+// Enable CORS with specific options
+app.use(cors({
+    origin: process.env.NODE_ENV === 'production' ? [/\.yourdomain\.com$/] : '*',
+    methods: ['GET', 'POST'],
+    credentials: true
+}));
+
+// Compression middleware
+app.use(compression());
+
+// Body parser middleware
 app.use(express.json());
-app.use(cors());
 
 // Serve static files except HTML
 app.use(express.static(__dirname, {
@@ -181,7 +210,32 @@ app.get('/api/results', (req, res) => {
     res.json(results);
 });
 
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error('Error:', err.stack);
+    res.status(500).json({
+        error: process.env.NODE_ENV === 'production' 
+            ? 'Internal Server Error' 
+            : err.message
+    });
+});
+
+// Handle unhandled rejections
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+});
+
+// Handle uncaught exceptions
+process.on('uncaughtException', (error) => {
+    console.error('Uncaught Exception:', error);
+    // Give the server a grace period to finish pending requests
+    setTimeout(() => {
+        process.exit(1);
+    }, 1000);
+});
+
 // Start server
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${port}`);
+    console.log(`Access your application at http://localhost:${port}`);
 });
