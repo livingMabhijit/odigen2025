@@ -171,4 +171,31 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Device detection and app store redirection
+    function detectDeviceAndRedirect() {
+        // iOS detection
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        
+        // Android detection
+        const isAndroid = /Android/.test(navigator.userAgent);
+        
+        if (isIOS) {
+            window.location.href = 'https://apps.apple.com/us/app/jazzee-edtech/id6743542317';
+        } else if (isAndroid) {
+            window.location.href = 'https://play.google.com/store/apps/details?id=com.jazzeetechnologies.jazzee_edtech';
+        } else {
+            // Fallback for desktop or unknown devices - open App Store by default
+            window.location.href = 'https://apps.apple.com/us/app/jazzee-edtech/id6743542317';
+        }
+    }
+
+    // Add click event listener to Apply Now button
+    const applyNowBtn = document.querySelector('.apply-now-btn');
+    if (applyNowBtn) {
+        applyNowBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            detectDeviceAndRedirect();
+        });
+    }
 });
