@@ -1,34 +1,50 @@
+// Global toggle menu function
+function toggleMenu() {
+    const navMenu = document.querySelector('.nav-menu');
+    const body = document.body;
+    const hamburger = document.querySelector('.hamburger');
+    
+    // Toggle menu state
+    if (navMenu.classList.contains('active')) {
+        // Close menu
+        navMenu.classList.remove('active');
+        body.classList.remove('nav-open');
+        // Add a small delay before showing the hamburger button again
+        setTimeout(() => {
+            hamburger.style.opacity = '1';
+            hamburger.style.visibility = 'visible';
+        }, 300); // Match this with the CSS transition duration
+    } else {
+        // Open menu
+        navMenu.classList.add('active');
+        body.classList.add('nav-open');
+    }
+}
+
 // Initialize navigation functionality
 function initNavigation() {
     const navMenu = document.querySelector('.nav-menu');
     const body = document.body;
-    let menuOpen = false;
-
+    
     // Menu toggle functionality
     const hamburger = document.querySelector('.hamburger');
     
-    window.toggleMenu = function() {
-        menuOpen = !menuOpen;
-        if (menuOpen) {
-            navMenu.classList.add('active');
-            body.classList.add('nav-open');
-        } else {
-            navMenu.classList.remove('active');
-            body.classList.remove('nav-open');
-            // Add a small delay before showing the hamburger button again
-            setTimeout(() => {
-                hamburger.style.opacity = '1';
-                hamburger.style.visibility = 'visible';
-            }, 300); // Match this with the CSS transition duration
-        }
-    };
+    // Add click event listeners to hamburger and close buttons
+    if (hamburger) {
+        hamburger.addEventListener('click', toggleMenu);
+    }
+    
+    const closeBtn = document.querySelector('.close-btn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', toggleMenu);
+    }
 
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-        if (!menuOpen) return;
+        // Check if menu is open
+        if (!navMenu.classList.contains('active')) return;
         
         if (!e.target.closest('.nav-content') && !e.target.closest('.hamburger')) {
-            menuOpen = false;
             navMenu.classList.remove('active');
             body.classList.remove('nav-open');
             // Add a small delay before showing the hamburger button again
