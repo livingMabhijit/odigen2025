@@ -48,6 +48,9 @@ app.use(express.static(__dirname, {
 // Serve partner logos
 app.use('/partners', express.static(path.join(__dirname, 'partners')));
 
+// Serve academic partner logos
+app.use('/academic_partners', express.static(path.join(__dirname, 'Academic_partners')));
+
 // Serve files from schedules directory
 app.use('/schedules', express.static(path.join(__dirname, 'schedules'), {
     setHeaders: (res, filePath) => {
